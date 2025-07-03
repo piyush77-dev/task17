@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Exception Handling Tasks</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h2>Exception Handling Tasks - Output</h2>
+
+    <script>
+        document.write("<b>Task 1: Handle undeclared variable exception</b><br>");
+        try {
+            // This will cause a ReferenceError
+            console.log(x);
+        } catch (err) {
+            document.write("Error: " + err.message + "<br>");
+        }
+        document.write("<br>");
+
+        document.write("<b>Task 2: Throw 'divide by zero' error</b><br>");
+        function divide(a, b) {
+            try {
+                if (b === 0) {
+                    throw new Error("Divide by zero error");
+                }
+                return a / b;
+            } catch (err) {
+                document.write("Error: " + err.message + "<br>");
+            }
+        }
+        divide(10, 0);
+        document.write("<br>");
+
+        document.write("<b>Task 3: Throw 'out of bounds' error</b><br>");
+        function accessArray(arr, index) {
+            try {
+                if (index < 0 || index >= arr.length) {
+                    throw new Error("Out of bound error");
+                }
+                document.write("Element: " + arr[index] + "<br>");
+            } catch (err) {
+                document.write("Error: " + err.message + "<br>");
+            }
+        }
+        let myArray = [10, 20, 30];
+        accessArray(myArray, 5);
+        document.write("<br>");
+
+        document.write("<b>Task 4: Exception handling using finally</b><br>");
+        function exampleFinally() {
+            try {
+                let a = 5;
+                let b = a + undeclaredVar; // This will cause error
+            } catch (err) {
+                document.write("Caught error: " + err.message + "<br>");
+            } finally {
+                document.write("Finally block executed<br>");
+            }
+        }
+        exampleFinally();
+    </script>
+
+</body>
+</html>
